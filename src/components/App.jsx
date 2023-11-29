@@ -27,8 +27,8 @@ export function App() {
         setImages(prevImages => [...prevImages, ...hits]);
         setTotal(total);
       } catch (error) {
-        setError(error.message);
-        console.log('error: ', error);
+        setError(true);
+        console.log('Error: ', error);
       } finally {
         setLoader(false);
       }
@@ -59,6 +59,11 @@ export function App() {
     <>
       <div className={css.App}>
         <Searchbar onSubmit={handleFormSubmit} />
+        {error && (
+          <p className={css.message}>
+            Something went wrong, please try again later.
+          </p>
+        )}
         <ImageGallery>
           {images.map(({ id, webformatURL, largeImageURL, tags }) => (
             <ImageGalleryItem

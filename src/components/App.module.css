@@ -16,3 +16,7 @@
   /* align-items: center; */
   z-index: 1300;
 }
+
+.message {
+  text-align: center;
+}
